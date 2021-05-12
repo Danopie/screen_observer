@@ -1,8 +1,7 @@
 name: screen_observer
 description: Similar to RouteObserver, but watch for screen transitions instead of route
 version: 0.0.1
-author: danle.sdev@gmail.com
-homepage: https://github.com/Danopie/screen_observer
+repository: https://github.com/Danopie/screen_observer
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
