@@ -1,10 +1,10 @@
 name: screen_observer
 description: Similar to RouteObserver, but watch for screen transitions instead of route
-version: 0.0.1
+version: 1.0.0
 repository: https://github.com/Danopie/screen_observer
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

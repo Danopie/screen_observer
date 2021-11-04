@@ -28,7 +28,7 @@ class ScreenObserver<R extends Route<dynamic>> extends NavigatorObserver {
     return route is PageRoute;
   };
 
-  ScreenObserver({ScreenPredicate screenPredicate})
+  ScreenObserver({ScreenPredicate? screenPredicate})
       : this.screenPredicate = screenPredicate ?? kDefaultScreenPredicate;
 
   /// Subscribe [screenAware] to be informed about changes to [screen].
@@ -51,15 +51,15 @@ class ScreenObserver<R extends Route<dynamic>> extends NavigatorObserver {
   void unsubscribe(ScreenTransitionAware screenAware) {
     assert(screenAware != null);
     for (final R route in _listeners.keys) {
-      final Set<ScreenTransitionAware> subscribers = _listeners[route];
+      final Set<ScreenTransitionAware>? subscribers = _listeners[route];
       subscribers?.remove(screenAware);
     }
   }
 
   @override
-  void didPop(Route<dynamic> route, Route<dynamic> previousRoute) {
+  void didPop(Route<dynamic> route, Route<dynamic>? previousRoute) {
     if (route is R && previousRoute is R) {
-      final List<ScreenTransitionAware> previousSubscribers =
+      final List<ScreenTransitionAware>? previousSubscribers =
       _listeners[previousRoute]?.toList();
 
       if (previousSubscribers != null) {
@@ -73,9 +73,9 @@ class ScreenObserver<R extends Route<dynamic>> extends NavigatorObserver {
   }
 
   @override
-  void didPush(Route<dynamic> route, Route<dynamic> previousRoute) {
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
     if (route is R && previousRoute is R) {
-      final Set<ScreenTransitionAware> previousSubscribers =
+      final Set<ScreenTransitionAware>? previousSubscribers =
       _listeners[previousRoute];
 
       if (previousSubscribers != null) {
